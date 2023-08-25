@@ -78,3 +78,15 @@ Der Source-Code ist groesstenteils undokumentiert, lediglich an einigen wenigen 
 Informationen Ueber den Aufbau einer COMAL-Erweiterung, und deren Pakete finded man z.B hier in diesem Buch.<br />
 https://archive.org/details/comal-80-for-the-commodore-64/page/n255/mode/2up.
 
+### ANMERKUNG:
+
+verwendete Software:
+Visual Studio Code, Version: 1.81.1
+Acme Cross-Assembler fuer VS Code (C64) v0.0.18
+
+verwendete Hardware:
+Apple iMac (24-inch, M1, 2021)
+
+Der Source-Code kann mit dem Acme Cross Compiler (C64) kompiliert werden.
+
+Gebrauch des Source-Codes auf eigene Gefahr ;)
