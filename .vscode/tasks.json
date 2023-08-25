@@ -1,0 +1,103 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build -> C64 -> 105PRG",
+            "type": "shell",
+            "osx": {
+                "command": "bin/mac/acme -f cbm  -o build/hs_105.prg code/hs_main.asm",
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "clear": true
+            },
+            "problemMatcher": {
+                "owner": "acme",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(Error - File\\s+(.*), line (\\d+) (\\(Zone .*\\))?:\\s+(.*))$",
+                    "file": 2,
+                    "location": 3,
+                    "message": 1
+                }
+            }
+        },
+        {
+            "label": "build -> C64 -> 121PRG",
+            "type": "shell",
+            "osx": {
+                "command": "bin/mac/acme -f cbm  -o build/hs_121.prg code/hs_main.asm",
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "clear": true
+            },
+            "problemMatcher": {
+                "owner": "acme",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(Error - File\\s+(.*), line (\\d+) (\\(Zone .*\\))?:\\s+(.*))$",
+                    "file": 2,
+                    "location": 3,
+                    "message": 1
+                }
+            }
+        },
+        {
+            "label": "build -> C64 -> 105BIN",
+            "type": "shell",
+            "osx": {
+                "command": "bin/mac/acme -f plain  -o build/hs_105.bin code/hs_main.asm",
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "clear": true
+            },
+            "problemMatcher": {
+                "owner": "acme",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(Error - File\\s+(.*), line (\\d+) (\\(Zone .*\\))?:\\s+(.*))$",
+                    "file": 2,
+                    "location": 3,
+                    "message": 1
+                }
+            }
+        },
+        {
+            "label": "build -> C64 -> 121BIN",
+            "type": "shell",
+            "osx": {
+                "command": "bin/mac/acme -f plain  -o build/hs_121.bin code/hs_main.asm",
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "clear": true
+            },
+            "problemMatcher": {
+                "owner": "acme",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(Error - File\\s+(.*), line (\\d+) (\\(Zone .*\\))?:\\s+(.*))$",
+                    "file": 2,
+                    "location": 3,
+                    "message": 1
+                }
+            }
+        }
+    ]
+}
