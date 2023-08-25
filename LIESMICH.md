@@ -14,7 +14,16 @@ https://www.c64-wiki.com/wiki/Commodore-64_Comal_80_rev_2.01<br />
 
 Diese Erweiterung gibt es in 2 verschiedenen Versionen.
 
-Bild hagensoft 105          Bild Hagensoft 1.21
+#### Hagensoft Screenshots<br />
+<div align="left">
+<table border="0" cellpadding="6" width="600">
+ <tr>
+  <td align="center"><img src="https://github.com/LeshanDaFo/C64-COMAL-Hagensoft/assets/97148663/4b81d712-5176-468b-9555-546fc7cce460" width="320" height="240"></td>
+  <td align="center"><img src="https://github.com/LeshanDaFo/C64-COMAL-Hagensoft/assets/97148663/90c314c0-08b3-4738-8884-00593a79ae7a" width="320" height="240"></td>
+ </tr>
+</table>
+</div>
+
 
 ### Hagensoft rev 1.05
 
