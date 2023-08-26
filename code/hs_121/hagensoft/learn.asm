@@ -105,6 +105,7 @@ L9398
     BPL L9398
     LDA $C0F7
     BNE L93B2
+L93A6
     LDA $88
     BEQ L93AE
     LDA $32

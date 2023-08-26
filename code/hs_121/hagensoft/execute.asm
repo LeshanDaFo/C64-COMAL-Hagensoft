@@ -28,7 +28,7 @@ EXCUTE  =   $ca36               ;execute code in cdbuf
 ; $93bd
     LDA $55
     BNE L93B5                   ; located in 'learn' part
-    JSR $93A6
+    JSR L93A6
     LDY #$05
 L93C6
     LDA $CCA1,Y
