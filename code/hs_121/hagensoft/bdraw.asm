@@ -27,6 +27,8 @@ COPY2   =   $47                 ;work For copy: to
 
 TXTHI   =   $7d                 ;address of text for print
 
+PAGE4   =   $83
+
 CALL    =   $c881               ;jsr to another page
 FNDPAR  =   $c896               ;Find parameter (asm.calls)
 EXCGST  =   $c9e0               ;allocate local storage
@@ -135,10 +137,10 @@ L8FC8
     INY
     JSR L8FE4
     JSR CALL                    ;jsr to another page
+    !by PAGE4                   ;$83
+    !by $5e                     ;address low byte
+    !by $8a                     ;address high byte
 
-    !by $83
-    !by $5e
-    TXA
     JMP L8F9C    
 L8FE4
     TYA

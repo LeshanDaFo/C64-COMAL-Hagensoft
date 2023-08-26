@@ -15,6 +15,7 @@
 ; ###############################################################
 
 ;used comal system addresses
+PAGE2   =   $81
 
 CALL    =   $c881               ;jsr to another page
 FNDPAR  =   $c896               ;Find parameter (asm.calls)

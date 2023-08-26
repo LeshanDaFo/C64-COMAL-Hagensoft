@@ -33,6 +33,8 @@ COPY3   =   $49                 ;work For copy: length
 TXTLO   =   $7c                 ;address of text for print
 TXTHI   =   $7d                 ;address of text for print
 
+PAGE4   =   $83
+
 FREKZP  =   $fb                 ;free kernal z-page space
 
 TXT     =   $c760               ;string constant buffer $c760-$c7aF

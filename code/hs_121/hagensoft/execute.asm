@@ -22,6 +22,9 @@ PRGPNT  =   $31                 ;pnt to start of line
 Q1      =   $3b
 Q2      =   $3d
 
+PAGE5   =   $84
+ROMMED  =   %00010000
+
 GOTO    =   $c884               ;jmp to another page
 EXCUTE  =   $ca36               ;execute code in cdbuf
 
@@ -90,7 +93,7 @@ L941E
 ---------------------------------
 L942C
     JSR GOTO                    ;jmp to another page
-    !by PAGE5                   ; $94
+    !by PAGE5+ROMMED            ; $94
     !by <L941E                  ; low byte
     !by >L941E                  ; high byte
 L9432

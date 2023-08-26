@@ -29,6 +29,8 @@ Q5      =   $43
 
 COPY1   =   $45                 ;work For copy: from
 
+PAGE4   =   $83
+
 CALL    =   $c881               ;jsr to another page
 LOAD    =   $c887               ;load from pagex
 FNDPAR  =   $c896               ;Find parameter (asm.calls)

@@ -54,7 +54,7 @@ start   =   $8000
 ; the next is only available in hagensoft 1.21
 !if HSOFT = 121 {
 ; package 4
-    !pet $07,"hagensoft"
+    !pet $09,"hagensoft"
     !word proct4    ;$80da
     !word DUMMY     ;$ca2f    
 }
