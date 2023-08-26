@@ -14,7 +14,15 @@ https://www.c64-wiki.com/wiki/Commodore-64_Comal_80_rev_2.01<br />
 
 Diese Erweiterung gibt es in 2 verschiedenen Versionen.
 
-Bild hagensoft 105          Bild Hagensoft 1.21
+#### Hagensoft Screenshots<br />
+<div align="left">
+<table border="0" cellpadding="6" width="600">
+ <tr>
+  <td align="center"><img src="https://github.com/LeshanDaFo/C64-COMAL-Hagensoft/assets/97148663/1da33654-0797-44f4-8c39-5b5fa416ae2f" width="320" height="240"></td>
+  <td align="center"><img src="https://github.com/LeshanDaFo/C64-COMAL-Hagensoft/assets/97148663/16837d13-2e75-4ec7-8b2b-73991ee3fe3d" width="320" height="240"></td>
+ </tr>
+</table>
+</div>
 
 ### Hagensoft rev 1.05
 
@@ -70,3 +78,15 @@ Der Source-Code ist groesstenteils undokumentiert, lediglich an einigen wenigen 
 Informationen Ueber den Aufbau einer COMAL-Erweiterung, und deren Pakete finded man z.B hier in diesem Buch.<br />
 https://archive.org/details/comal-80-for-the-commodore-64/page/n255/mode/2up.
 
+### ANMERKUNG:
+
+verwendete Software:
+Visual Studio Code, Version: 1.81.1
+Acme Cross-Assembler fuer VS Code (C64) v0.0.18
+
+verwendete Hardware:
+Apple iMac (24-inch, M1, 2021)
+
+Der Source-Code kann mit dem Acme Cross Compiler (C64) kompiliert werden.
+
+Gebrauch des Source-Codes auf eigene Gefahr ;)
