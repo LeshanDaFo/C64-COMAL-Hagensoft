@@ -1,4 +1,3 @@
-# COMAL
 
 ## C64 COMAL Hagensoft extension
 
