@@ -32,7 +32,7 @@ start   =   $8000
     !pet "CBM80comal"
 
     !by >start                  ; $80
-    !by PAGE5 + ROMMED          ; PAGE 5 =$84 + %00010000 <> $95
+    !by PAGE5 + ROMMED          ; PAGE 5 =$84 + %00010000 <> $94
 
     !word .end                  ; the program end address
     !word signal                ; the address of the signal handler
@@ -79,7 +79,7 @@ signal ; $8046 $8038
     bne .skip3
     LDA $55
     BEQ .skip3
-    JMP $93E8   ;located in execute part
+    JMP L93E8                   ;located in execute part
 .skip2
     LDA #$00
     sta $55   
