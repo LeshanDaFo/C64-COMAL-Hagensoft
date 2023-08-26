@@ -186,9 +186,9 @@ L8EE5
     LDA #$01
     JSR FNDPAR                  ;Find parameter (asm.calls)
     JSR CALL                    ;jsr to another page
-    !by $83
-    !by $ef
-    !by $9a                     ; page 3 ?
+    !by PAGE4                   ;$83
+    !by $ef                     ;low byte address
+    !by $9a                     ;high byte address
     ASL $C29B,X
     LSR $C29B,X
     LDA #$00

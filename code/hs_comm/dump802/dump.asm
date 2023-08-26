@@ -306,8 +306,10 @@ L8886
     SBC COPY3                   ;work For copy: length
     STA COPY3                   ;work For copy: length
     JSR CALL                    ;jsr to another page
-    !by $83
-    DEC $A88F,X
+    !by PAGE4                   ;$83
+    !by $de                     ;low byte address
+    !by $8f                     ;high byte address
+    TAY
     LDA FREKZP+3                ;free kernal z-page space
     ROR
     LDA L8851,Y

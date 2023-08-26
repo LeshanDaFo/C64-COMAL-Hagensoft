@@ -90,9 +90,9 @@ L941E
 ---------------------------------
 L942C
     JSR GOTO                    ;jmp to another page
-    !by >L941E                  ; high byte
+    !by PAGE5                   ; $94
     !by <L941E                  ; low byte
-    !by $94
+    !by >L941E                  ; high byte
 L9432
     INC $C0F7
     LDX $C0F0

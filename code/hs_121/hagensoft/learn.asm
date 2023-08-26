@@ -79,9 +79,9 @@ L9352
     DEX
     STX $C0F0
     JSR CALL                    ;jsr to another page
-    !by $81
-    !by $0D
-    !by $92
+    !by PAGE2                   ;$81
+    !by $0D                     ;low byte address
+    !by $92                     ;high byte address
     LDY $15
     STY $C663
     LDX #$00
