@@ -28,6 +28,7 @@ Q5      =   $43
 COPY1   =   $45                 ;work For copy: from
 COPY2   =   $47                 ;work For copy: to
 
+INBUF   =   $C5E8
 LDAC1   =   $c890               ;load ac1
 FNDPAR  =   $c896               ;Find parameter (asm.calls)
 STAC1   =   $c8f6               ;store ac1
@@ -35,13 +36,16 @@ FPSUB   =   $c8c0               ;load ac2 and sub ac2 from ac1
 FPMUL   =   $c8cc               ;load ac2 and mul ac2 by ac1
 FPADD   =   $c8ab               ;load ac2 and add ac2 to ac1
 FPNEG   =   $c90b               ;negate ac1
+FPSIN   =   $c91d               ;sine of ac1
+FPCOS   =   $c926               ;cosine of ac1
+TRUNC   =   $C977               ;convert aci into integer (-32768 .. 32767)
 EXCGST  =   $c9e0               ;allocate local storage
 
 ; $908c
     LDY #$36
 L908E
     LDA L91F7,y
-    STA $C5E8,y
+    STA INBUF,y
     DEY
     BPL L908E
     LDY #$05
@@ -53,32 +57,32 @@ L9099
     TAY
     LDX L91E2-1,y
     LDA COPY1                   ;work For copy: from
-    STA $C5EA,x
+    STA INBUF+2,x
     LDA COPY1+1                 ;work For copy: from
-    STA $C5EB,x
+    STA INBUF+3,x
     DEY
     BNE L9099
 L90B0
     STY Q3
-    JSR L90C9-1
+    JSR L90C8
     LDY Q3
     INY
     BNE L90B0
 L90BA
-    !by $2b
-L90BB
-    STA ($09),y
-    STA ($1c),y
-    CMP #$25
-    CMP #$0f
-    STA ($0a),y
-    CMP #$15
-    STA ($b9),y
-L90C9
-    DEC $90,x
+
+    !word L912C -1
+    !word L910A -1
+    !word FPSIN -1
+    !word FPCOS -1
+    !word L9110 -1
+    !word FPNEG -1
+    !word L9116 -1
+
+L90C8
+    LDA L90D6,y
     ASL
     TAX
-    LDA L90BB,x
+    LDA L90BA+1,x
     PHA
     LDA L90BA,x
     PHA
@@ -92,12 +96,15 @@ L90F4 !by $03,$01,$07,$04,$08,$06,$07,$04
 L90FC !by $00,$06,$08,$01,$09,$04,$0a,$06
 L9104 !by $09,$04,$00,$06,$0a,$00
 ---------------------------------
+L910A
     JSR L911C
     JMP LDAC1                   ;load ac1
 ---------------------------------
+L9110
     JSR L911C
     JMP FPMUL                   ;load ac2 and mul ac2 by ac1
 ---------------------------------
+L9116
     JSR L911C
     JMP STAC1                   ;store ac1
 ---------------------------------
@@ -108,10 +115,11 @@ L9121
     ASL
     ASL
     TAX
-    LDY $c5eb,x
-    LDA $c5ea,x
+    LDY INBUF+3,x
+    LDA INBUF+2,x
     TAX
     RTS
+L912C
     PLA
     PLA
     LDA $2D
@@ -137,7 +145,7 @@ L9141
     LDY Q1
     DEY
     BPL L9141
-    JMP L8F97
+    JMP L8F97                   ; located in bdraw
 ---------------------------------
 L9163
     STA Q2
@@ -166,16 +174,12 @@ L918A
     JSR FPADD                   ;load ac2 and add ac2 to ac1
     JMP L9185
 ---------------------------------
-    STA $00
-    BRK
----------------------------------
-    BRK
----------------------------------
-    BRK
+L9195
+    !by $85,$00,$00,$00,$00
 ---------------------------------
 L919A
-    LDY #$91
-    LDA #$95
+    LDY #>L9195
+    LDA #<L9195
     JSR FPMUL                   ;load ac2 and mul ac2 by ac1
     JSR $C977
     LDA $65
