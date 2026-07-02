@@ -17,8 +17,8 @@ Diese Erweiterung gibt es in 2 verschiedenen Versionen.
 <div align="left">
 <table border="0" cellpadding="6" width="600">
  <tr>
-  <td align="center"><img src="https://github.com/LeshanDaFo/C64-COMAL-Hagensoft/assets/97148663/1da33654-0797-44f4-8c39-5b5fa416ae2f" width="320" height="240"></td>
-  <td align="center"><img src="https://github.com/LeshanDaFo/C64-COMAL-Hagensoft/assets/97148663/16837d13-2e75-4ec7-8b2b-73991ee3fe3d" width="320" height="240"></td>
+  <td align="center"><img src="assets/hagensoft_rev_1.05.png" alt="Hagensoft Rev. 1.05" width="320" height="240"></td>
+  <td align="center"><img src="assets/hagensoft_rev_1.21.png" alt="Hagensoft Rev. 1.21" width="320" height="240"></td>
  </tr>
 </table>
 </div>
