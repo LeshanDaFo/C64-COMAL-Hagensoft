@@ -1,1 +1,8 @@
+# macOS
 .DS_Store
+
+# Local build configuration
+scripts/config.sh
+
+# Build output
+build/

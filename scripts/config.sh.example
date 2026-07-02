@@ -1,0 +1,24 @@
+#!/bin/sh
+
+###############################################################################
+# User configuration
+###############################################################################
+
+# Path to the ACME assembler.
+#
+# If ACME is in your PATH:
+ACME="acme"
+
+# Examples:
+# macOS Homebrew
+# ACME="/opt/homebrew/bin/acme"
+#
+# Local repository copy
+# ACME="../bin/mac/acme"
+#
+# Linux
+# ACME="/usr/local/bin/acme"
+
+
+# Hagensoft version
+HSOFT=121

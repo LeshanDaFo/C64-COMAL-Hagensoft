@@ -17,7 +17,9 @@ IERTXT      =   $C7E4           ;error message data
 DUMMY       =   $ca2f           ;empty subroutine (rts)
 
 
-HSOFT = 121
+!ifndef HSOFT {
+    HSOFT = 121
+}
 
 !source"code/c64symb.asm"
 

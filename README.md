@@ -1,91 +1,252 @@
+# C64 COMAL Hagensoft Extension
 
+> Reconstructed source code of the original **Hagensoft extension** for
+> **COMAL80 Revision 2.01** on the Commodore 64 and Commodore 128.
 
-## C64 COMAL Hagensoft extension
+------------------------------------------------------------------------
 
-Information about COMAL itself can be found here:<br />
-https://www.c64-wiki.com/wiki/Commodore-64_Comal_80_rev_2.01<br />
-<br />
+## Overview
 
-### Hagensoft for COMAL80 is an extension for the existing COMAL80 module for the C64/C128
+The Hagensoft extension is an add-on ROM for the original **COMAL80
+Revision 2.01** cartridge.
 
-#### Info about the modules:
+This repository contains a reconstructed version of the original
+Hagensoft source code for the Commodore 64 and Commodore 128.
 
-This extension is available in 2 different versions.
+Its purpose is to preserve the original extension and provide a solid
+foundation for developing your own COMAL80 extensions.
 
-#### Hagensoft Screenshots<br />
+------------------------------------------------------------------------
+
+## Features
+
+-   Reconstructed original source code
+-   Supports Hagensoft Revision **1.05**
+-   Supports Hagensoft Revision **1.21**
+-   Binary identical ROM images
+-   ACME build system
+-   Generates both `.bin` and `.chip` images
+
+------------------------------------------------------------------------
+
+## Repository Structure
+
+``` text
+assets/     Screenshots
+build/      Generated output
+code/       Source code
+scripts/    Build scripts
+```
+
+------------------------------------------------------------------------
+
+## Hagensoft for COMAL80
+
+Hagensoft is an extension for the original **COMAL80 Revision 2.01**
+cartridge and therefore **cannot be used as a standalone cartridge**.
+
+Supported revisions:
+
+-   **Revision 1.05**
+-   **Revision 1.21**
+
+------------------------------------------------------------------------
+
+## Screenshots
+
 <div align="left">
 <table border="0" cellpadding="6" width="600">
- <tr>
-  <td align="center"><img src="assets/hagensoft_rev_1.05.png" alt="Hagensoft Rev. 1.05" width="320" height="240"></td>
-  <td align="center"><img src="assets/hagensoft_rev_1.21.png" alt="Hagensoft Rev. 1.21" width="320" height="240"></td>
- </tr>
+<tr>
+<td align="center"><img src="assets/hagensoft_rev_1.05.png" alt="Hagensoft Rev. 1.05" width="320" height="240"></td>
+<td align="center"><img src="assets/hagensoft_rev_1.21.png" alt="Hagensoft Rev. 1.21" width="320" height="240"></td>
+</tr>
 </table>
 </div>
 
-### Hagensoft rev 1.05
+------------------------------------------------------------------------
 
-Version 1.05 extends COMAL80 by 3 new 'packages'.
+## Building
 
-   1. The 'DEUTSCH' package
-   2. The 'MATRIX' package
-   3. The 'DUMP802' package
+The project is assembled using the **ACME Cross Assembler**.
 
-to 1.
-<br />
-In the basic version of COMAL80, the output of the error messages is available in the languages 'DANSK' and 'ENGLISH'.<br />
-With the language pack contained in the extension, the language 'DEUTSCH' has been added, which is activated by default when the extension is started.
+### Configuration
 
-With the command 'USE >language<' you can switch the output of the error messages back to another existing language at any time.
+``` sh
+cp scripts/config.sh.example scripts/config.sh
+```
 
-to 2.
-<br />
-The 'MATRIX' package can be activated with 'USE MATRIX', and offers 10 new additional commands.<br />
-   "MATPUT", "MATADD", "MATSUB", "MATCOM", "MATNULL", "MATUNIT", "MATMULT", "MATTRANS", "DEMAT", "NULLMAT", "EQMAT"
-<br />
-At this point, I have not examined in detail how the commands are used and what they do.
+Edit `scripts/config.sh` and configure:
 
-to 3.
-<br />
-The package "DUMP802" can be activated with 'USE DUMP802", and offers 3 new additional commands.<br />
-   "DUMP', "MEMORY", "PALETTE"
-<br />
-I didn't do any further research here either.
+-   Path to the ACME assembler
+-   Hagensoft revision (`105` or `121`)
 
-### Hagensoft rev 1.21
-In version 1.21 the DUMP802 package has been slightly modified and a fourth package called HAGENSOFT has been added.
+Example:
 
-The HAGENSOFT package can be integrated with 'USE HAGENSOFT'.
+``` sh
+ACME="acme"
+HSOFT=121
+```
 
-The "MEMORY" and "PALETTE" commands have been removed from the DUMP802 package and included in the new "HAGENSOFT" package.
-The HAGENSOFT package contains a total of 8 commands including these two commands.<br />
-     "MEMORY", "PALETTE", "EDGE", SYMBOLS", "GETSHAPE", "BDRAW", "ELLIPSE", "LEARN", "EVAL", "EXECUTE"
+### Build
 
+``` sh
+sh scripts/build.sh
+```
 
-At this point I would like to point out again that I have not examined the commands further.
-The point here is not to describe the functions or procedures
-I just want to present the source code I created from the modules.
+Generated files are written to the `build` directory:
 
-The source code was created on the basis of COMAL80 Hagensoft extensions freely available on the Internet.<br />
-The extensions created with this source code were compared by me with the existing data and correspond to this 1:1
+-   `hagensoft_105.bin`
+-   `hagensoft_105.chip`
+-   `hagensoft_121.bin`
+-   `hagensoft_121.chip`
 
-With the source code I created and made available, it should be possible to create your 'own' extension.
-So you can e.g. change contained commands, remove them or replace them with new ones.
+The `.bin` file contains the raw 8 KB ROM image.
 
-The source code is mostly undocumented, only in a few places I have added some documentation.
+The `.chip` file contains the same ROM image with a VICE-compatible CHIP
+header.
 
-Information about the structure of a COMAL extension and its packages can be found e.g. here in this book.<br />
-https://archive.org/details/comal-80-for-the-commodore-64/page/n255/mode/2up.
+------------------------------------------------------------------------
 
+## About COMAL80
 
-### REMARK:
+Further information:
 
-Used Software:
-Visual Studio Code, Version: 1.81.1
-Acme Cross-Assembler for VS Code (C64) v0.0.18
+-   https://www.c64-wiki.com/wiki/Commodore-64_Comal_80_rev_2.01
 
-Used Hardware:
-Apple iMac (24-inch, M1, 2021)
+Documentation about COMAL extensions:
 
-The source code can be compiled by using the Acme Cross Compiler (C64)
+-   https://archive.org/details/comal-80-for-the-commodore-64/page/n255/mode/2up
 
-Please use this source code on your own risk ;)
+## Hagensoft Revision 1.05
+
+Version **1.05** extends COMAL80 with three additional packages:
+
+1.  **DEUTSCH**
+2.  **MATRIX**
+3.  **DUMP802**
+
+### DEUTSCH
+
+The original COMAL80 cartridge provides error messages in the languages
+**DANSK** and **ENGLISH**.
+
+The Hagensoft extension adds the **DEUTSCH** language package, which is
+enabled by default.
+
+The command
+
+``` text
+USE <language>
+```
+
+can be used to switch between the installed language packages.
+
+### MATRIX
+
+Activate with:
+
+``` text
+USE MATRIX
+```
+
+Additional commands:
+
+``` text
+MATPUT
+MATADD
+MATSUB
+MATCOM
+MATNULL
+MATUNIT
+MATMULT
+MATTRANS
+DEMAT
+NULLMAT
+EQMAT
+```
+
+The functionality of these commands has not yet been examined in detail.
+
+### DUMP802
+
+Activate with:
+
+``` text
+USE DUMP802
+```
+
+Commands:
+
+``` text
+DUMP
+MEMORY
+PALETTE
+```
+
+These commands have not been examined further.
+
+------------------------------------------------------------------------
+
+## Hagensoft Revision 1.21
+
+Revision **1.21** modifies the **DUMP802** package and introduces a
+fourth package named **HAGENSOFT**.
+
+Activate with:
+
+``` text
+USE HAGENSOFT
+```
+
+The commands **MEMORY** and **PALETTE** were moved from **DUMP802** into
+**HAGENSOFT**.
+
+Additional commands:
+
+``` text
+MEMORY
+PALETTE
+EDGE
+SYMBOLS
+GETSHAPE
+BDRAW
+ELLIPSE
+LEARN
+EVAL
+EXECUTE
+```
+
+As with Revision 1.05, the purpose of this repository is **not** to
+document the functionality of these commands.
+
+------------------------------------------------------------------------
+
+## Source Code
+
+The source code was reconstructed from original Hagensoft ROM images
+that are freely available on the Internet.
+
+The generated ROM images have been compared against the original ROMs
+and are **binary identical**.
+
+Although the source code is still largely undocumented, comments have
+been added where useful.
+
+------------------------------------------------------------------------
+
+## Development
+
+The project is assembled using the **ACME Cross Assembler**.
+
+The build system is located in the `scripts` directory.
+
+Generated output files are written to the `build` directory.
+
+------------------------------------------------------------------------
+
+## License / Disclaimer
+
+This reconstructed source code is provided for educational and
+preservation purposes.
+
+Please use it at your own risk.
